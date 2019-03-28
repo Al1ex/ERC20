@@ -38,7 +38,7 @@ contract BWToken is ERC20, ERC20Detailed, Ownable {
      * @param to To receive tokens.
      * @param amount Tokens amount.
      */
-    function withdrawERC20Token(address erc20, address to, uint256 amount) external {
+    function withdrawERC20Token(address erc20, address to, uint256 amount) external onlyOwner {
         require(to != address(0x0));
         require(ITransferable(erc20).transfer(to, amount));
     }
